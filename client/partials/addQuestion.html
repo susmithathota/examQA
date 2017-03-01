@@ -1,0 +1,13 @@
+<div ng-controller="questionsController as QC">
+	<div>
+		<h4><a href="#/dash">Home</a> | <a href="/logout">logout</a> </h4>
+	</div>
+	<h4>New Question</h4>
+	<form>
+		<p style="color:red" ng-repeat="error in QC.errors">{{error}}</p>
+		Question<textarea ng-model="QC.newQ.question"></textarea>
+		Description<textarea ng-model="QC.newQ.description"></textarea>
+		<button ng-click="QC.addQuestion()">Submit</button>
+		<button ng-click="QC.cancel()">Cancel</button>
+	</form>
+</div>

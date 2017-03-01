@@ -1,0 +1,20 @@
+<div ng-controller="sessionController as SC">
+	<div ng-controller="questionsController as QC">
+		<div>
+			<h4><a href="#/dash">Home</a> | <a href="#/show/{{QC.ansQuestion._id}}">Go back to Question</a> | <a href="/logout">logout</a> </h4>
+		</div>
+
+		<h4>{{QC.ansQuestion.question}}</h4>
+		<p><i>{{QC.ansQuestion.description}}</i></p>
+
+		<div ng-controller="answersController as AC">
+			<p style="color:red" ng-repeat="error in AC.errors">{{error}}</p>
+			<form>
+				Answer<textarea ng-model="AC.newA.answer"></textarea>
+				Supporting Details<textarea ng-model="AC.newA.details"></textarea>
+				<button ng-click="AC.addAnswer(QC.ansQuestion._id,SC.cur_user._id)">submit</button>
+				<button ng-click="AC.cancel()">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<div ng-controller="questionsController as QC">
+	<div>
+		<h4><a href="#/dash">Home</a> | <a href="#/answer/{{QC.showQuestion._id}}">Answer the question</a> | <a href="/logout">logout</a> </h4>
+	</div>
+
+	<div ng-controller="answersController as AC">
+		{{QC.showQuestion.question}}
+		<div ng-repeat="answer in QC.showQuestion.answers" style="border-top:1px solid black">
+			<h4>{{answer.user.name}}</h4>
+			<h5>{{answer.answer}}</h5>
+			<p><i>{{answer.details}}</i></p>
+			<p>{{answer.likes}}-likes <a href="#" ng-click="AC.likeAnswer(answer._id)" class="btn btn-primary">like</a> </p>
+		</div>
+	</div>
+</div>
